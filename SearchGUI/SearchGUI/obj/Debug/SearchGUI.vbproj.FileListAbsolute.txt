@@ -1,0 +1,20 @@
+c:\users\piniel777\documents\visual studio 2013\Projects\SearchGUI\SearchGUI\bin\Debug\SearchGUI.exe.config
+c:\users\piniel777\documents\visual studio 2013\Projects\SearchGUI\SearchGUI\obj\Debug\SearchGUI.frmSearch.resources
+c:\users\piniel777\documents\visual studio 2013\Projects\SearchGUI\SearchGUI\obj\Debug\SearchGUI.Resources.resources
+c:\users\piniel777\documents\visual studio 2013\Projects\SearchGUI\SearchGUI\obj\Debug\SearchGUI.vbproj.GenerateResource.Cache
+c:\users\piniel777\documents\visual studio 2013\Projects\SearchGUI\SearchGUI\bin\Debug\SearchGUI.exe
+c:\users\piniel777\documents\visual studio 2013\Projects\SearchGUI\SearchGUI\bin\Debug\SearchGUI.pdb
+c:\users\piniel777\documents\visual studio 2013\Projects\SearchGUI\SearchGUI\bin\Debug\SearchGUI.xml
+c:\users\piniel777\documents\visual studio 2013\Projects\SearchGUI\SearchGUI\obj\Debug\SearchGUI.exe
+c:\users\piniel777\documents\visual studio 2013\Projects\SearchGUI\SearchGUI\obj\Debug\SearchGUI.xml
+c:\users\piniel777\documents\visual studio 2013\Projects\SearchGUI\SearchGUI\obj\Debug\SearchGUI.pdb
+C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\bin\Debug\SearchGUI.exe.config
+C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\obj\Debug\SearchGUI.exe
+C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\obj\Debug\SearchGUI.xml
+C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\obj\Debug\SearchGUI.pdb
+C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\bin\Debug\SearchGUI.exe
+C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\bin\Debug\SearchGUI.pdb
+C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\bin\Debug\SearchGUI.xml
+C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\obj\Debug\SearchGUI.frmSearch.resources
+C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\obj\Debug\SearchGUI.Resources.resources
+C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\obj\Debug\SearchGUI.vbproj.GenerateResource.Cache
