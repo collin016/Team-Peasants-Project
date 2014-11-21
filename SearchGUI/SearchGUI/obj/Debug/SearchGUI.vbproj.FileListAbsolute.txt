@@ -18,3 +18,13 @@ C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\bin\Debug\SearchGUI.xml
 C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\obj\Debug\SearchGUI.frmSearch.resources
 C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\obj\Debug\SearchGUI.Resources.resources
 C:\Users\mcdowe623\Desktop\SearchGUI\SearchGUI\obj\Debug\SearchGUI.vbproj.GenerateResource.Cache
+C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.exe.config
+C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.exe
+C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.pdb
+C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.xml
+C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.frmSearch.resources
+C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.Resources.resources
+C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.vbproj.GenerateResource.Cache
+C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.exe
+C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.xml
+C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.pdb

@@ -1,0 +1,8 @@
+Student ID, Package ID, Overweight?, Arrival Time, Delivery Company, Is Picked Up?
+T00728484, 1, False, 11/19/2014 11:00:00 AM, UPS, False
+T00703544, 2, False, 11/19/2014 11:00:00 AM, FedEx, False
+T00737331, 3, True, 11/19/2014 6:00:00 PM, UPS, False
+T00698638, 4, True, 11/19/2014 1:00:00 PM, UPS, False
+T00719183, 1, False, 11/21/2014 3:00:00 PM, UPS, False
+T00719183, 2, True, 11/21/2014 3:00:00 PM, UPS, False
+T00728484, 2, True, 11/21/2014 1:00:00 PM, FedEx, False
