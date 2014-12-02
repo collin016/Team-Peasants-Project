@@ -226,7 +226,7 @@
             End While
         End Using
         dgvPackage.DataSource = dtPackages
-        'dgvPackage.Columns(0).Visible = False
+        dgvPackage.Columns(5).Visible = False
 
         'Dim studentIDvalue = dgvStudents.SelectedRows(0).Cells(0).Value
         'dgvPackage.Rows(dtPacakges.Rows.Count - 1).Cells(0).Value = studentIDvalue
@@ -257,35 +257,27 @@
 
     Private Sub RemoveGridDataInFile(ByVal fName As String, ByVal dgvA As DataGridView)
         Try
-            ' Store elements of selected row in an array
-            Dim rows = From row As DataGridViewRow In dgvA.Rows.Cast(Of DataGridViewRow)() _
-                   Where row.Selected = True _
-                   Select Array.ConvertAll(row.Cells.Cast(Of DataGridViewCell).ToArray, _
-                                           Function(c) If(c.Value IsNot Nothing, c.Value.ToString, ""))
-
-            ' Open StreamWriter to edit csv("fName")
-            Using sw As New IO.StreamWriter(fName, True)
-                For Each r In rows
-                    ' If "Package Picked Up?" is "False"
-                    If r(5).Contains("False") Then
-                        ' Create Yes/No validation message box
-                        Dim result As Integer = MessageBox.Show("Are you sure you want to delete package #" & r(1) & "?", _
+            ' Set each line in CSV as element of an array
+            Dim lines() As String = IO.File.ReadAllLines(fName)
+            ' Check each element(package) in array
+            For x As Integer = 0 To lines.Count() - 1
+                ' Set element from array as its own array
+                Dim line As String() = Split(lines(x), ", ")
+                ' Check if Student IDs and Package IDs match between CSV and dgvPackage
+                If (line(0) = dgvPackage.SelectedRows(0).Cells(0).Value.ToString And _
+                    line(1) = dgvPackage.SelectedRows(0).Cells(1).Value.ToString) Then
+                    ' Validation message box
+                    Dim result As Integer = MessageBox.Show("Are you sure you want to delete this package?", _
                                                                 "Delete Package", MessageBoxButtons.YesNo)
 
-                        If result = DialogResult.Yes Then
-                            ' Change "Picked Up Package?" valuse to "True" to make not visible in dgvPackages
-                            r(5) = r(5).Replace("False", "True")
-                            ' Open csv in notepad for debugging purposes
-                            Process.Start(fName)
-                        End If
-
-                        If result = DialogResult.No Then
-
-                        End If
+                    If result = DialogResult.Yes Then
+                        ' Set "Is Picked Up?" to true; won't be visible in dgvPackage
+                        line(5) = "True"
                     End If
-                Next
-            End Using
-
+                End If
+                lines(x) = String.Join(", ", line)
+            Next
+            IO.File.WriteAllLines(fName, lines)
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -294,7 +286,6 @@
 
     Private Sub dgvStudents_SelectionChanged(sender As Object, e As EventArgs) Handles dgvStudents.SelectionChanged
         If dgvStudents.SelectedRows.Count < 1 Then Return
-
         ' Refresh dgvPackage if row is selected in dgvStudents
         LoadPackageDGV()
         dgvPackage.Rows(dgvPackage.Rows.Count - 1).Cells(0).Value = dgvStudents.SelectedRows(0).Cells(0).Value
@@ -303,11 +294,32 @@
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Try
             If (dgvPackage.SelectedRows.Count >= 1) Then
-                ' Add selected package to csv
-                SaveGridDataInFile(csvPackages, dgvPackage)
-                ' Give feedback
-                MessageBox.Show("Package #" & dgvPackage.SelectedRows(0).Cells(1).Value & _
-                    " has been added to " & dgvStudents.SelectedRows(0).Cells(1).Value)
+                ' Check that only last row is selected so we can't add existing package
+                If (dgvPackage.SelectedRows(0).Index = dgvPackage.RowCount - 1) Then
+                    ' Create validaion message box
+                    Dim result As Integer =
+                        MessageBox.Show("Are you sure you want to add this package? " & _
+                                        vbCr & "Student ID:      " & dgvPackage.SelectedRows(0).Cells(0).Value & _
+                                        vbCr & "Package ID:      " & dgvPackage.SelectedRows(0).Cells(1).Value & _
+                                        vbCr & "Overweight:      " & dgvPackage.SelectedRows(0).Cells(2).Value & _
+                                        vbCr & "Arrival Time:    " & dgvPackage.SelectedRows(0).Cells(3).Value & _
+                                        vbCr & "Deliver Company: " & dgvPackage.SelectedRows(0).Cells(4).Value & _
+                                        vbCr & "Is Picked Up?:   " & dgvPackage.SelectedRows(0).Cells(5).Value, _
+                                        "Delete Package", MessageBoxButtons.YesNo)
+
+                    If result = DialogResult.Yes Then
+                        ' Add selected package to csv
+                        SaveGridDataInFile(csvPackages, dgvPackage)
+                        ' Give feedback
+                        MessageBox.Show("Package #" & dgvPackage.SelectedRows(0).Cells(1).Value & _
+                            " has been added to " & dgvStudents.SelectedRows(0).Cells(1).Value)
+
+                    ElseIf result = DialogResult.No Then
+                        MessageBox.Show("Package not added.")
+                    End If
+                Else
+                    MessageBox.Show("Can not add existing package.")
+                End If
             Else
                 ' Give feedback if no package selected
                 MessageBox.Show("Please select a package.")
@@ -327,6 +339,7 @@
             If (dgvPackage.SelectedRows.Count >= 1) Then
                 ' Remove package if row is selected
                 RemoveGridDataInFile(csvPackages, dgvPackage)
+                LoadPackageDGV()
             Else
                 ' Give feedback if no package selected
                 MessageBox.Show("Please select a package.")
