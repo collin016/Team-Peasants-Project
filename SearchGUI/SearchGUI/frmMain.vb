@@ -132,18 +132,38 @@
             MyReader.Delimiters = New String() {","}
             Dim firstrow As String()
             Dim currentRow As String()
+
+            ' Create column headers using first row of csv
             If Not MyReader.EndOfData Then
                 firstrow = MyReader.ReadFields()
+                ' Creates columns from csv
                 For i As Integer = 0 To UBound(firstrow)
                     dtStudents.Columns.Add(firstrow(i))
                 Next
+                ' Adds column for # Packages
                 dtStudents.Columns.Add("# Package(s)")
             End If
-            dtStudents.Columns("# Package(s)").DefaultValue = 0
+            dtStudents.Columns(6).DefaultValue = 0
 
+            ' Loop through rows in csv to create student records
             While Not MyReader.EndOfData
                 Try
                     currentRow = MyReader.ReadFields()
+
+                    ' Create package counter
+                    Dim numPackages As String = 0
+                    For Each row In dtPackages.Rows
+                        ' Add to counter if Student IDs match and package has not been picked up
+                        If row(0) = currentRow(0) Then
+                            If row(5) = False Then
+                                numPackages += 1
+                            End If
+                        End If
+                    Next
+
+                    ' Add package counter to current row
+                    ReDim Preserve currentRow(6)
+                    currentRow(6) = numPackages
 
                     ' Checks if student ID has been searched
                     If (searchedStudentID <> "") Then
@@ -164,6 +184,7 @@
                     Else
                         dtStudents.Rows.Add(currentRow)
                     End If
+
                 Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
                     MessageBox.Show(ex.Message & vbCrLf & "Skipping")
                 End Try
@@ -191,7 +212,7 @@
                     dtPackages.Columns.Add(firstrow(i))
                 Next
             End If
-            'dtPacakges.Columns(0).ReadOnly = True
+            'dtPackages.Columns(0).ReadOnly = True
 
             ' Overweight? properties
             dtPackages.Columns(2).DataType = Type.GetType("System.Boolean")
@@ -208,6 +229,7 @@
             While Not MyReader.EndOfData
                 Try
                     currentRow = MyReader.ReadFields()
+
                     ' Display only if student has not picked up package
                     If (currentRow(5) = False) Then
                         ' Ensure students is selected
@@ -219,6 +241,7 @@
                         Else
                             dtPackages.Rows.Add(currentRow)
                         End If
+
                     End If
                 Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
                     MessageBox.Show(ex.Message & vbCrLf & "Skipping")
@@ -227,10 +250,6 @@
         End Using
         dgvPackage.DataSource = dtPackages
         dgvPackage.Columns(5).Visible = False
-
-        'Dim studentIDvalue = dgvStudents.SelectedRows(0).Cells(0).Value
-        'dgvPackage.Rows(dtPacakges.Rows.Count - 1).Cells(0).Value = studentIDvalue
-        'dgvPackage.Rows(dtPacakges.Rows.Count - 1).Cells(1).Value = dtPacakges.Rows.Count
     End Sub
 
     Private Sub SaveGridDataInFile(ByVal fName As String, ByVal dgvA As DataGridView)
@@ -273,6 +292,7 @@
                     If result = DialogResult.Yes Then
                         ' Set "Is Picked Up?" to true; won't be visible in dgvPackage
                         line(5) = "True"
+                        LoadStudentDGV()
                     End If
                 End If
                 lines(x) = String.Join(", ", line)
@@ -295,7 +315,7 @@
         Try
             If (dgvPackage.SelectedRows.Count >= 1) Then
                 ' Check that only last row is selected so we can't add existing package
-                If (dgvPackage.SelectedRows(0).Index = dgvPackage.RowCount - 1) Then
+                If (dgvPackage.SelectedRows(0).Index = dgvPackage.RowCount - 2) Then
                     ' Create validaion message box
                     Dim result As Integer =
                         MessageBox.Show("Are you sure you want to add this package? " & _
@@ -313,6 +333,7 @@
                         ' Give feedback
                         MessageBox.Show("Package #" & dgvPackage.SelectedRows(0).Cells(1).Value & _
                             " has been added to " & dgvStudents.SelectedRows(0).Cells(1).Value)
+                        LoadStudentDGV()
 
                     ElseIf result = DialogResult.No Then
                         MessageBox.Show("Package not added.")
@@ -339,7 +360,7 @@
             If (dgvPackage.SelectedRows.Count >= 1) Then
                 ' Remove package if row is selected
                 RemoveGridDataInFile(csvPackages, dgvPackage)
-                LoadPackageDGV()
+                LoadStudentDGV()
             Else
                 ' Give feedback if no package selected
                 MessageBox.Show("Please select a package.")
