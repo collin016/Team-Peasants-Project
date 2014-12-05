@@ -8,3 +8,13 @@ C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchG
 C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.exe
 C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.xml
 C:\Users\collin016\Documents\Team-Peasants-Project\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.pdb
+C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.exe.config
+C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.exe
+C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.xml
+C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.pdb
+C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.exe
+C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.pdb
+C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.xml
+C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.frmMain.resources
+C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.Resources.resources
+C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\PeasantsProject.vbproj.GenerateResource.Cache

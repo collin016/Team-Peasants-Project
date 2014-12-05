@@ -1,4 +1,5 @@
-﻿Public Class frmMain
+﻿Imports System.Net.Mail
+Public Class frmMain
 
     'private attributes
     Private maxLength As Integer = 8
@@ -313,6 +314,32 @@
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Try
+            Using mail As New MailMessage
+
+                'Sets Address Information
+                mail.From = New MailAddress("AutoMailMaster@morrisville.edu")
+                mail.To.Add("Morgan294@morrisville.edu")
+
+                'Set the content of the email
+                mail.Subject = "test Email"
+                mail.Body = "This is a Test Email"
+
+                'Send THe message
+
+                Using SMTp As New SmtpClient("mymail.morrisville.edu", 25)
+                    SMTp.EnableSsl = True
+                    SMTp.Credentials = New System.Net.NetworkCredential("AutoMailMaster", "MailMaster@2014")
+
+                    Try
+                        SMTp.Send(mail)
+                        MsgBox("Your Email has been sent Successfully")
+                    Catch ex As Exception
+                        MsgBox("Send Failure", ex.ToString())
+                    End Try
+
+                End Using
+            End Using
+
             If (dgvPackage.SelectedRows.Count >= 1) Then
                 ' Check that only last row is selected so we can't add existing package
                 If (dgvPackage.SelectedRows(0).Index = dgvPackage.RowCount - 2) Then
