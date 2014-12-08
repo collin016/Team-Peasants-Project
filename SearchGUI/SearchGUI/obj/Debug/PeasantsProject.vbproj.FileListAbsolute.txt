@@ -18,3 +18,13 @@ C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\bin\D
 C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.frmMain.resources
 C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.Resources.resources
 C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\PeasantsProject.vbproj.GenerateResource.Cache
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.exe.config
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.exe
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.xml
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.pdb
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.exe
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.pdb
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\SearchGUI.xml
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.frmMain.resources
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.Resources.resources
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\PeasantsProject.vbproj.GenerateResource.Cache

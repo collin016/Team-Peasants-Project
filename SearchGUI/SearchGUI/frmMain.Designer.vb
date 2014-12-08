@@ -41,6 +41,7 @@ Partial Class frmMain
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.btnSend = New System.Windows.Forms.Button()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -83,6 +84,7 @@ Partial Class frmMain
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.btnSend)
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnDelete)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnAdd)
@@ -100,7 +102,7 @@ Partial Class frmMain
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Label1.Location = New System.Drawing.Point(58, 38)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(118, 29)
+        Me.Label1.Size = New System.Drawing.Size(103, 26)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Last Name"
         '
@@ -109,7 +111,7 @@ Partial Class frmMain
         Me.txtLastName.Location = New System.Drawing.Point(192, 45)
         Me.txtLastName.MaxLength = 320
         Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.Size = New System.Drawing.Size(131, 21)
+        Me.txtLastName.Size = New System.Drawing.Size(131, 20)
         Me.txtLastName.TabIndex = 3
         '
         'btnClear
@@ -150,7 +152,7 @@ Partial Class frmMain
         Me.lblMNumber.ForeColor = System.Drawing.SystemColors.ControlText
         Me.lblMNumber.Location = New System.Drawing.Point(139, 9)
         Me.lblMNumber.Name = "lblMNumber"
-        Me.lblMNumber.Size = New System.Drawing.Size(46, 29)
+        Me.lblMNumber.Size = New System.Drawing.Size(40, 26)
         Me.lblMNumber.TabIndex = 0
         Me.lblMNumber.Text = "M#"
         '
@@ -162,7 +164,7 @@ Partial Class frmMain
         Me.lblTitle.ForeColor = System.Drawing.SystemColors.ControlText
         Me.lblTitle.Location = New System.Drawing.Point(14, -79)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(358, 64)
+        Me.lblTitle.Size = New System.Drawing.Size(328, 59)
         Me.lblTitle.TabIndex = 29
         Me.lblTitle.Text = "Student Search"
         '
@@ -184,7 +186,7 @@ Partial Class frmMain
         Me.txtSearch.Location = New System.Drawing.Point(192, 12)
         Me.txtSearch.MaxLength = 320
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(131, 21)
+        Me.txtSearch.Size = New System.Drawing.Size(131, 20)
         Me.txtSearch.TabIndex = 1
         '
         'PictureBox1
@@ -215,8 +217,8 @@ Partial Class frmMain
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.dgvPackage)
-        Me.SplitContainer2.Size = New System.Drawing.Size(841, 464)
-        Me.SplitContainer2.SplitterDistance = 241
+        Me.SplitContainer2.Size = New System.Drawing.Size(841, 467)
+        Me.SplitContainer2.SplitterDistance = 242
         Me.SplitContainer2.TabIndex = 13
         '
         'dgvStudents
@@ -235,7 +237,7 @@ Partial Class frmMain
         Me.dgvStudents.ReadOnly = True
         Me.dgvStudents.RowTemplate.Height = 24
         Me.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvStudents.Size = New System.Drawing.Size(837, 237)
+        Me.dgvStudents.Size = New System.Drawing.Size(837, 238)
         Me.dgvStudents.TabIndex = 0
         '
         'dgvPackage
@@ -249,13 +251,13 @@ Partial Class frmMain
         Me.dgvPackage.MultiSelect = False
         Me.dgvPackage.Name = "dgvPackage"
         Me.dgvPackage.RowTemplate.Height = 24
-        Me.dgvPackage.Size = New System.Drawing.Size(837, 215)
+        Me.dgvPackage.Size = New System.Drawing.Size(837, 217)
         Me.dgvPackage.TabIndex = 1
         '
         'btnDelete
         '
         Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDelete.Location = New System.Drawing.Point(477, 508)
+        Me.btnDelete.Location = New System.Drawing.Point(477, 511)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(115, 26)
         Me.btnDelete.TabIndex = 12
@@ -265,7 +267,7 @@ Partial Class frmMain
         'btnAdd
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAdd.Location = New System.Drawing.Point(361, 508)
+        Me.btnAdd.Location = New System.Drawing.Point(361, 511)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(110, 26)
         Me.btnAdd.TabIndex = 11
@@ -282,9 +284,18 @@ Partial Class frmMain
         Me.PictureBox2.TabIndex = 14
         Me.PictureBox2.TabStop = False
         '
+        'btnSend
+        '
+        Me.btnSend.Location = New System.Drawing.Point(598, 511)
+        Me.btnSend.Name = "btnSend"
+        Me.btnSend.Size = New System.Drawing.Size(107, 26)
+        Me.btnSend.TabIndex = 15
+        Me.btnSend.Text = "&Send"
+        Me.btnSend.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
@@ -334,5 +345,6 @@ Partial Class frmMain
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents btnSend As System.Windows.Forms.Button
 
 End Class

@@ -314,31 +314,8 @@ Public Class frmMain
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Try
-            Using mail As New MailMessage
 
-                'Sets Address Information
-                mail.From = New MailAddress("AutoMailMaster@morrisville.edu")
-                mail.To.Add("Morgan294@morrisville.edu")
-
-                'Set the content of the email
-                mail.Subject = "test Email"
-                mail.Body = "This is a Test Email"
-
-                'Send THe message
-
-                Using SMTp As New SmtpClient("mymail.morrisville.edu", 25)
-                    SMTp.EnableSsl = True
-                    SMTp.Credentials = New System.Net.NetworkCredential("AutoMailMaster", "MailMaster@2014")
-
-                    Try
-                        SMTp.Send(mail)
-                        MsgBox("Your Email has been sent Successfully")
-                    Catch ex As Exception
-                        MsgBox("Send Failure", ex.ToString())
-                    End Try
-
-                End Using
-            End Using
+            
 
             If (dgvPackage.SelectedRows.Count >= 1) Then
                 ' Check that only last row is selected so we can't add existing package
@@ -394,6 +371,28 @@ Public Class frmMain
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
+        Dim selectedemail As String = dgvStudents.Item(columnIndex:=(5), rowIndex:=(0)).Value
+        Dim mailmsg As New MailMessage
+        Dim smtpServer As New SmtpClient("smtp.morrisville.edu")
+
+        mailmsg.From = New MailAddress("AutoMailMaster@morrisville.edu")
+        mailmsg.Subject = "Package Notifcation!"
+        mailmsg.Body = "You have recevied a package!"
+        MsgBox("Email Selected is " + selectedemail)
+        mailmsg.To.Add(selectedemail.ToString)
+        smtpServer.Credentials = New System.Net.NetworkCredential("AutoMailMaster@morrisville.edu", "MailMaster@2014")
+        smtpServer.Timeout = 3000
+        Try
+
+            smtpServer.Send(mailmsg)
+            MsgBox("Your Email has been sent Successfully!")
+
+        Catch ex As Exception
+            MsgBox(ex.Message(), selectedemail)
         End Try
     End Sub
 End Class
