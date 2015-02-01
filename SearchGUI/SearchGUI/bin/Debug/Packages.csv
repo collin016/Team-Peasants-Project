@@ -1,8 +1,15 @@
-Student ID, Package ID, Overweight?, Arrival Time, Delivery Company, Is Picked Up?
-T00728484, 1, False, 11/19/2014 11:00:00 AM, UPS, False
-T00703544, 2, False, 11/19/2014 11:00:00 AM, FedEx, False
-T00737331, 3, True, 11/19/2014 6:00:00 PM, UPS, False
-T00698638, 4, True, 11/19/2014 1:00:00 PM, UPS, False
-T00719183, 1, False, 11/21/2014 3:00:00 PM, UPS, False
-T00719183, 2, True, 11/21/2014 3:00:00 PM, UPS, False
-T00728484, 2, True, 11/21/2014 1:00:00 PM, FedEx, False
+Student ID, Package ID, Oversized?, Arrival Time, Delivery Company, Is Picked Up?, Pickup Time
+T00759372, 1, False, 12/12/2014 3:00:00 PM, UPS, False, 
+T00777180, 2, True, 12/12/2014 4:00:00 PM, FedEx, False, 
+T00714952, 3, True, 12/12/2014 3:00:00 PM, UPS, False, 
+T00774609, 4, False, 12/12/2014 9:00:00 AM, UPS, False, 
+T00714952, 5, True, 12/12/2014 3:00:00 PM, UPS, False, 
+T00774609, 6, True, 12/12/2014 9:00:00 AM, UPS, False, 
+T00714952, 7, False, 12/12/2014 4:00:00 PM, UPS, False, 
+T00759372, 8, True, 12/12/2014 4:00:00 PM, FedEx, False, 
+T00715925, 20, False, 12/12/2014 6:00:00 AM, UPS , True, 
+T00774672, 20, True, 12/12/2014 4:00:00 PM, UPS, True, 
+T00719183, 15, False, 12/12/2014 4:00:00 PM, UPS, False, 
+T00774609, 32, False, 12/15/2014 9:00:00 AM, UPS, True, 12/15/2014 7:43:02 PM
+T00715925, 101, False, 1/30/2015 4:59:00 AM, UPS, True, 1/30/2015 5:01:07 PM
+T00715925, 101, True, 1/30/2015 5:00:00 AM, UPS, True, 1/30/2015 5:01:09 PM

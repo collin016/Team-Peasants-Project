@@ -25,6 +25,7 @@ Partial Class frmMain
         Me.components = New System.ComponentModel.Container()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -32,16 +33,15 @@ Partial Class frmMain
         Me.btnHelp = New System.Windows.Forms.Button()
         Me.lblMNumber = New System.Windows.Forms.Label()
         Me.lblTitle = New System.Windows.Forms.Label()
-        Me.btnExit = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnSend = New System.Windows.Forms.Button()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.dgvStudents = New System.Windows.Forms.DataGridView()
         Me.dgvPackage = New System.Windows.Forms.DataGridView()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.btnSend = New System.Windows.Forms.Button()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -71,6 +71,7 @@ Partial Class frmMain
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Button1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtLastName)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnClear)
@@ -78,7 +79,6 @@ Partial Class frmMain
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnHelp)
         Me.SplitContainer1.Panel1.Controls.Add(Me.lblMNumber)
         Me.SplitContainer1.Panel1.Controls.Add(Me.lblTitle)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.btnExit)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtSearch)
         Me.SplitContainer1.Panel1.Controls.Add(Me.PictureBox1)
         '
@@ -89,10 +89,20 @@ Partial Class frmMain
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnDelete)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnAdd)
         Me.SplitContainer1.Panel2.Controls.Add(Me.PictureBox2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(962, 769)
+        Me.SplitContainer1.Size = New System.Drawing.Size(960, 769)
         Me.SplitContainer1.SplitterDistance = 216
         Me.SplitContainer1.SplitterWidth = 1
         Me.SplitContainer1.TabIndex = 26
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Arial", 8.150944!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(336, 12)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(163, 26)
+        Me.Button1.TabIndex = 37
+        Me.Button1.Text = "Display All Packages"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -102,7 +112,7 @@ Partial Class frmMain
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Label1.Location = New System.Drawing.Point(58, 38)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(103, 26)
+        Me.Label1.Size = New System.Drawing.Size(132, 33)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Last Name"
         '
@@ -111,7 +121,7 @@ Partial Class frmMain
         Me.txtLastName.Location = New System.Drawing.Point(192, 45)
         Me.txtLastName.MaxLength = 320
         Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.Size = New System.Drawing.Size(131, 20)
+        Me.txtLastName.Size = New System.Drawing.Size(131, 23)
         Me.txtLastName.TabIndex = 3
         '
         'btnClear
@@ -152,7 +162,7 @@ Partial Class frmMain
         Me.lblMNumber.ForeColor = System.Drawing.SystemColors.ControlText
         Me.lblMNumber.Location = New System.Drawing.Point(139, 9)
         Me.lblMNumber.Name = "lblMNumber"
-        Me.lblMNumber.Size = New System.Drawing.Size(40, 26)
+        Me.lblMNumber.Size = New System.Drawing.Size(52, 33)
         Me.lblMNumber.TabIndex = 0
         Me.lblMNumber.Text = "M#"
         '
@@ -164,29 +174,16 @@ Partial Class frmMain
         Me.lblTitle.ForeColor = System.Drawing.SystemColors.ControlText
         Me.lblTitle.Location = New System.Drawing.Point(14, -79)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(328, 59)
+        Me.lblTitle.Size = New System.Drawing.Size(406, 73)
         Me.lblTitle.TabIndex = 29
         Me.lblTitle.Text = "Student Search"
-        '
-        'btnExit
-        '
-        Me.btnExit.BackColor = System.Drawing.Color.LawnGreen
-        Me.btnExit.BackgroundImage = Global.SearchGUI.My.Resources.Resources.DirtImage
-        Me.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnExit.Font = New System.Drawing.Font("Calibri", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.Location = New System.Drawing.Point(717, 76)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(128, 41)
-        Me.btnExit.TabIndex = 7
-        Me.btnExit.Text = "E&xit"
-        Me.btnExit.UseVisualStyleBackColor = False
         '
         'txtSearch
         '
         Me.txtSearch.Location = New System.Drawing.Point(192, 12)
         Me.txtSearch.MaxLength = 320
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(131, 20)
+        Me.txtSearch.Size = New System.Drawing.Size(131, 23)
         Me.txtSearch.TabIndex = 1
         '
         'PictureBox1
@@ -195,9 +192,21 @@ Partial Class frmMain
         Me.PictureBox1.Image = Global.SearchGUI.My.Resources.Resources.MailImage
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(962, 216)
+        Me.PictureBox1.Size = New System.Drawing.Size(960, 216)
         Me.PictureBox1.TabIndex = 36
         Me.PictureBox1.TabStop = False
+        '
+        'btnSend
+        '
+        Me.btnSend.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSend.Location = New System.Drawing.Point(544, 520)
+        Me.btnSend.Name = "btnSend"
+        Me.btnSend.Size = New System.Drawing.Size(107, 26)
+        Me.btnSend.TabIndex = 15
+        Me.btnSend.Text = "&Send"
+        Me.btnSend.UseVisualStyleBackColor = True
         '
         'SplitContainer2
         '
@@ -217,8 +226,8 @@ Partial Class frmMain
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.dgvPackage)
-        Me.SplitContainer2.Size = New System.Drawing.Size(841, 467)
-        Me.SplitContainer2.SplitterDistance = 242
+        Me.SplitContainer2.Size = New System.Drawing.Size(839, 476)
+        Me.SplitContainer2.SplitterDistance = 245
         Me.SplitContainer2.TabIndex = 13
         '
         'dgvStudents
@@ -237,7 +246,7 @@ Partial Class frmMain
         Me.dgvStudents.ReadOnly = True
         Me.dgvStudents.RowTemplate.Height = 24
         Me.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvStudents.Size = New System.Drawing.Size(837, 238)
+        Me.dgvStudents.Size = New System.Drawing.Size(835, 241)
         Me.dgvStudents.TabIndex = 0
         '
         'dgvPackage
@@ -251,23 +260,23 @@ Partial Class frmMain
         Me.dgvPackage.MultiSelect = False
         Me.dgvPackage.Name = "dgvPackage"
         Me.dgvPackage.RowTemplate.Height = 24
-        Me.dgvPackage.Size = New System.Drawing.Size(837, 217)
+        Me.dgvPackage.Size = New System.Drawing.Size(835, 223)
         Me.dgvPackage.TabIndex = 1
         '
         'btnDelete
         '
         Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDelete.Location = New System.Drawing.Point(477, 511)
+        Me.btnDelete.Location = New System.Drawing.Point(423, 520)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(115, 26)
         Me.btnDelete.TabIndex = 12
-        Me.btnDelete.Text = "&Delete Package"
+        Me.btnDelete.Text = "&Pickup Package"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
         'btnAdd
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAdd.Location = New System.Drawing.Point(361, 511)
+        Me.btnAdd.Location = New System.Drawing.Point(307, 520)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(110, 26)
         Me.btnAdd.TabIndex = 11
@@ -280,26 +289,17 @@ Partial Class frmMain
         Me.PictureBox2.Image = Global.SearchGUI.My.Resources.Resources.DirtImage
         Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(962, 552)
+        Me.PictureBox2.Size = New System.Drawing.Size(960, 552)
         Me.PictureBox2.TabIndex = 14
         Me.PictureBox2.TabStop = False
         '
-        'btnSend
-        '
-        Me.btnSend.Location = New System.Drawing.Point(598, 511)
-        Me.btnSend.Name = "btnSend"
-        Me.btnSend.Size = New System.Drawing.Size(107, 26)
-        Me.btnSend.TabIndex = 15
-        Me.btnSend.Text = "&Send"
-        Me.btnSend.UseVisualStyleBackColor = True
-        '
         'frmMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.ClientSize = New System.Drawing.Size(962, 769)
+        Me.ClientSize = New System.Drawing.Size(960, 769)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Font = New System.Drawing.Font("Arial", 8.150944!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -334,7 +334,6 @@ Partial Class frmMain
     Friend WithEvents btnHelp As System.Windows.Forms.Button
     Friend WithEvents lblMNumber As System.Windows.Forms.Label
     Friend WithEvents lblTitle As System.Windows.Forms.Label
-    Friend WithEvents btnExit As System.Windows.Forms.Button
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtLastName As System.Windows.Forms.TextBox
@@ -346,5 +345,6 @@ Partial Class frmMain
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents btnSend As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 
 End Class

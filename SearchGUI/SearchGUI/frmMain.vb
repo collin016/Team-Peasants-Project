@@ -7,7 +7,7 @@ Public Class frmMain
     'globals
     Dim dtStudents As New DataTable
     Dim dtPackages As New DataTable
-    Dim csvStudents As String = "\\CISNTS1\BUSINESS\CIT\Cita450\ho1046r-1.csv"
+    Dim csvStudents As String = "R:\CIT\Cita450\ho1046r-1.csv"
     Dim rowcount As Integer
     Dim csvPackages As String = My.Application.Info.DirectoryPath & "\Packages.csv"
     Dim searchedStudentID As String = ""
@@ -33,9 +33,13 @@ Public Class frmMain
     End Sub
 
     'close program click
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+    Private Sub btnExit_Click(sender As Object, e As EventArgs)
         'close the program
         Me.Close()
+    End Sub
+
+    Private Sub frmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        frmLogin.Close()
     End Sub
 
     'load frm
@@ -142,7 +146,7 @@ Public Class frmMain
                     dtStudents.Columns.Add(firstrow(i))
                 Next
                 ' Adds column for # Packages
-                dtStudents.Columns.Add("# Package(s)")
+                dtStudents.Columns(6).ColumnName = "# Package(s)"
             End If
             dtStudents.Columns(6).DefaultValue = 0
 
@@ -153,17 +157,42 @@ Public Class frmMain
 
                     ' Create package counter
                     Dim numPackages As String = 0
-                    For Each row In dtPackages.Rows
-                        ' Add to counter if Student IDs match and package has not been picked up
-                        If row(0) = currentRow(0) Then
-                            If row(5) = False Then
-                                numPackages += 1
-                            End If
+                    'For Each row In dtPackages.Rows
+                    '    ' Add to counter if Student IDs match and package has not been picked up
+                    '    If row(0) = currentRow(0) Then
+                    '        If row(5) = False Then
+                    '            numPackages += 1
+                    '        End If
+                    '    End If
+                    'Next
+
+                    Using MyReader2 As New Microsoft.VisualBasic.FileIO.TextFieldParser(csvPackages)
+                        MyReader2.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
+                        MyReader2.Delimiters = New String() {","}
+                        Dim currentRow2 As String()
+                        If Not MyReader2.EndOfData Then
+                            MyReader2.ReadFields()
                         End If
-                    Next
+
+                        ' Add each row from CSV into dgvPackages
+                        While Not MyReader2.EndOfData
+                            Try
+                                currentRow2 = MyReader2.ReadFields()
+
+                                If currentRow2(0) = currentRow(0) Then
+                                    If currentRow2(5) = False Then
+                                        numPackages += 1
+                                    End If
+                                End If
+
+                            Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                                MessageBox.Show(ex.Message & vbCrLf & "Skipping")
+                            End Try
+                        End While
+                    End Using
 
                     ' Add package counter to current row
-                    ReDim Preserve currentRow(6)
+                    'ReDim Preserve currentRow(6)
                     currentRow(6) = numPackages
 
                     ' Checks if student ID has been searched
@@ -213,7 +242,7 @@ Public Class frmMain
                     dtPackages.Columns.Add(firstrow(i))
                 Next
             End If
-            'dtPackages.Columns(0).ReadOnly = True
+            dtPackages.Columns(0).ReadOnly = True
 
             ' Overweight? properties
             dtPackages.Columns(2).DataType = Type.GetType("System.Boolean")
@@ -226,7 +255,8 @@ Public Class frmMain
             dtPackages.Columns(5).DataType = Type.GetType("System.Boolean")
             dtPackages.Columns(5).DefaultValue = False
 
-            ' Add each row from CSV into dgvPackagers
+
+            ' Add each row from CSV into dgvPackages
             While Not MyReader.EndOfData
                 Try
                     currentRow = MyReader.ReadFields()
@@ -251,6 +281,7 @@ Public Class frmMain
         End Using
         dgvPackage.DataSource = dtPackages
         dgvPackage.Columns(5).Visible = False
+        dgvPackage.Columns(6).Visible = False
     End Sub
 
     Private Sub SaveGridDataInFile(ByVal fName As String, ByVal dgvA As DataGridView)
@@ -269,7 +300,7 @@ Public Class frmMain
                 Next
             End Using
             ' Open csv in notepad for debugging purposes
-            Process.Start(fName)
+            'Process.Start(fName)
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -293,7 +324,7 @@ Public Class frmMain
                     If result = DialogResult.Yes Then
                         ' Set "Is Picked Up?" to true; won't be visible in dgvPackage
                         line(5) = "True"
-                        LoadStudentDGV()
+                        line(6) = DateTime.Now.ToString
                     End If
                 End If
                 lines(x) = String.Join(", ", line)
@@ -315,7 +346,7 @@ Public Class frmMain
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Try
 
-            
+
 
             If (dgvPackage.SelectedRows.Count >= 1) Then
                 ' Check that only last row is selected so we can't add existing package
@@ -323,13 +354,12 @@ Public Class frmMain
                     ' Create validaion message box
                     Dim result As Integer =
                         MessageBox.Show("Are you sure you want to add this package? " & _
-                                        vbCr & "Student ID:      " & dgvPackage.SelectedRows(0).Cells(0).Value & _
-                                        vbCr & "Package ID:      " & dgvPackage.SelectedRows(0).Cells(1).Value & _
-                                        vbCr & "Overweight:      " & dgvPackage.SelectedRows(0).Cells(2).Value & _
-                                        vbCr & "Arrival Time:    " & dgvPackage.SelectedRows(0).Cells(3).Value & _
-                                        vbCr & "Deliver Company: " & dgvPackage.SelectedRows(0).Cells(4).Value & _
-                                        vbCr & "Is Picked Up?:   " & dgvPackage.SelectedRows(0).Cells(5).Value, _
-                                        "Delete Package", MessageBoxButtons.YesNo)
+                                        vbCr & "Student ID:       " & dgvPackage.SelectedRows(0).Cells(0).Value & _
+                                        vbCr & "Package ID:       " & dgvPackage.SelectedRows(0).Cells(1).Value & _
+                                        vbCr & "Oversize:       " & dgvPackage.SelectedRows(0).Cells(2).Value & _
+                                        vbCr & "Arrival Time:     " & dgvPackage.SelectedRows(0).Cells(3).Value & _
+                                        vbCr & "Delivery Company: " & dgvPackage.SelectedRows(0).Cells(4).Value, _
+                                        "Add Package", MessageBoxButtons.YesNo)
 
                     If result = DialogResult.Yes Then
                         ' Add selected package to csv
@@ -380,8 +410,9 @@ Public Class frmMain
         Dim smtpServer As New SmtpClient("smtp.morrisville.edu")
 
         mailmsg.From = New MailAddress("AutoMailMaster@morrisville.edu")
-        mailmsg.Subject = "Package Notifcation!"
-        mailmsg.Body = "You have recevied a package!"
+        mailmsg.Subject = "Package Notification!"
+        mailmsg.Body =
+            "You have recevied a package! Please Do not reply to this email"
         MsgBox("Email Selected is " + selectedemail)
         mailmsg.To.Add(selectedemail.ToString)
         smtpServer.Credentials = New System.Net.NetworkCredential("AutoMailMaster@morrisville.edu", "MailMaster@2014")
@@ -394,5 +425,15 @@ Public Class frmMain
         Catch ex As Exception
             MsgBox(ex.Message(), selectedemail)
         End Try
+    End Sub
+
+    Private Sub dgvPackage_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPackage.CellClick
+        If dgvPackage.Rows(e.RowIndex).Cells(0).Value.ToString = "" Then
+            dgvPackage.Rows(e.RowIndex).Cells(0).Value = dgvStudents.SelectedRows(0).Cells(0).Value
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        frmPackages.Show()
     End Sub
 End Class
