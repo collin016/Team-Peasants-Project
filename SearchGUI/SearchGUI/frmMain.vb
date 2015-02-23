@@ -1,4 +1,7 @@
 ﻿Imports System.Net.Mail
+Imports System.IO
+
+
 Public Class frmMain
 
     'private attributes
@@ -11,6 +14,7 @@ Public Class frmMain
     Dim rowcount As Integer
     Dim csvPackages As String = My.Application.Info.DirectoryPath & "\Packages.csv"
     Dim searchedStudentID As String = ""
+    Dim Pass As String
 
     'help & instructions with example
     Private Sub btnHelp_Click(sender As Object, e As EventArgs) Handles btnHelp.Click
@@ -48,6 +52,8 @@ Public Class frmMain
         ManualM()
         LoadPackageDGV()
         LoadStudentDGV()
+        Password()
+
     End Sub
 
     'adds an M to the text box
@@ -415,8 +421,16 @@ Public Class frmMain
             "You have recevied a package! Please Do not reply to this email"
         MsgBox("Email Selected is " + selectedemail)
         mailmsg.To.Add(selectedemail.ToString)
-        smtpServer.Credentials = New System.Net.NetworkCredential("AutoMailMaster@morrisville.edu", "MailMaster@2014")
-        smtpServer.Timeout = 3000
+
+        Try
+            smtpServer.Credentials = New System.Net.NetworkCredential("AutoMailMaster@morrisville.edu", Pass
+                                                                      )
+            smtpServer.Timeout = 3000
+        Catch ex As Exception
+            MsgBox(ex.Message, "Mail Account Could not be accessed ")
+        End Try
+
+
         Try
 
             smtpServer.Send(mailmsg)
@@ -436,4 +450,19 @@ Public Class frmMain
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmPackages.Show()
     End Sub
+
+    Public Sub Password()
+
+
+        Try
+            Pass = File.ReadAllText("C:\Users\Alfred\Desktop\password.txt")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
+    End Sub
+
+
+
 End Class

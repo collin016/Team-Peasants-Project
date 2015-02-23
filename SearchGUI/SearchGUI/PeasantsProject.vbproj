@@ -70,7 +70,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data Access\clsStudentDA.vb" />
     <Compile Include="frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
@@ -90,7 +89,6 @@
     <Compile Include="frmPackages.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modules\mdlDbutilities.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
