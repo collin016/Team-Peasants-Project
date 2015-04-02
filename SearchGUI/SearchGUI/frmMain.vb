@@ -12,7 +12,7 @@ Public Class frmMain
     Dim dtPackages As New DataTable
     Dim csvStudents As String = "R:\CIT\Cita450\ho1046r-1.csv"
     Dim rowcount As Integer
-    Dim csvPackages As String = My.Application.Info.DirectoryPath & "\Packages.csv"
+    Dim csvPackages As String = "C:\Users\morgan294\Desktop\Packages.csv"
     Dim searchedStudentID As String = ""
     Dim Pass As String
 
@@ -455,7 +455,7 @@ Public Class frmMain
 
 
         Try
-            Pass = File.ReadAllText("C:\Users\Alfred\Desktop\password.txt")
+            Pass = File.ReadAllText("R:\CIT\Cita450\password.txt")
         Catch ex As Exception
             MsgBox(ex.Message)
 
