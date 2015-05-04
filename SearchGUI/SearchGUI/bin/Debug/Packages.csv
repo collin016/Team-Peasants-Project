@@ -1,6 +1,6 @@
 Student ID, Package ID, Oversized?, Arrival Time, Delivery Company, Is Picked Up?, Pickup Time
 T00759372, 1, False, 12/12/2014 3:00:00 PM, UPS, False, 
-T00777180, 2, True, 12/12/2014 4:00:00 PM, FedEx, False, 
+T00777180, 2, True, 12/12/2014 4:00:00 PM, FedEx, True, 2/24/2015 3:13:12 PM
 T00714952, 3, True, 12/12/2014 3:00:00 PM, UPS, False, 
 T00774609, 4, False, 12/12/2014 9:00:00 AM, UPS, False, 
 T00714952, 5, True, 12/12/2014 3:00:00 PM, UPS, False, 

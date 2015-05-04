@@ -455,7 +455,7 @@ Public Class frmMain
 
 
         Try
-            Pass = File.ReadAllText("C:\Users\Alfred\Desktop\password.txt")
+            Pass = File.ReadAllText("C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\bin\Debug\password.txt")
         Catch ex As Exception
             MsgBox(ex.Message)
 
