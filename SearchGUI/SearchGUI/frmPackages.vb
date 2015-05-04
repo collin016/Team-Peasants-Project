@@ -1,7 +1,7 @@
 ﻿Public Class frmPackages
 
     Dim dtPackages As New DataTable
-    Dim csvPackages As String = My.Application.Info.DirectoryPath & "\Packages.csv"
+    Dim csvPackages As String = "C:\Users\morgan294\Desktop\Packages.csv"
     Dim searchedPackageID As String = ""
 
     Private Sub LoadPackageDGV()
@@ -80,7 +80,7 @@
         If txtSearch.Text = "" Then
             'ADD MMMMMMMM!
             'CORRECTION: "ADD TTTTTTTT!"
-            txtSearch.Text = "T"
+            txtSearch.Text = "M"
         End If
 
         'focus to textbox

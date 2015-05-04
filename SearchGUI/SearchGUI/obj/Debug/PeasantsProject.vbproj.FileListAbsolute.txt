@@ -55,3 +55,5 @@ C:\Users\Alfred\Desktop\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\Sear
 C:\Users\Alfred\Desktop\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\PeasantsProject.vbproj.GenerateResource.Cache
 C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.frmLogin.resources
 C:\Users\Alfred\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.frmPackages.resources
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.frmLogin.resources
+C:\Users\morgan294\Documents\GitHub\Team-Peasants-Project\SearchGUI\SearchGUI\obj\Debug\SearchGUI.frmPackages.resources
